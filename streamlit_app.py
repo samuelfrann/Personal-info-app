@@ -8,8 +8,6 @@ with st.sidebar:
     st.header('Personal Info')
     st.write('Do not leave any question blank')
 
-st.markdown('This is the markdown')
-
 name = st.text_input('Enter your name')
 if name:
     st.write(f'Hello :blue[***{name}***]')
@@ -22,17 +20,8 @@ options = ['','Data Science', 'Data Analysis', 'Machine Learning']
 choice = st.selectbox('Which is your preferred niche', options)
 st.write(f'Your preferred niche is {choice}')
 
-data = {
-    'Name': ['John', 'Frank', 'Peter', 'Toni'],
-    'age': [25, 30, 15, 32],
-    'city': ['Lagos', 'NY', 'LA', 'California']
-}
-df = pd.DataFrame(data)
-df.to_csv('sample_data.csv')
-st.write('The biodata info')
-st.write(df)
-
 uploaded_file = st.file_uploader('Choose a CSV file', type='csv')
 if uploaded_file is not None:
     data_df = pd.read_csv(uploaded_file)
+    st.write('This is your dataset')
     st.write(data_df)
